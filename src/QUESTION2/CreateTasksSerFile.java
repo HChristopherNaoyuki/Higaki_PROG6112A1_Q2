@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Author:
- * Student Number:
+ * Author: NAOYUKI CHRISTOPHER HIGAKI
+ * Student Number: ST10462415
  *
  * This class, CreateTasksSerFile, is responsible for generating and serializing a list of tasks.
  * The serialized file created is named "tasks.ser". This file includes a set of sample tasks 

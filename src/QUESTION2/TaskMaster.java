@@ -6,8 +6,8 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
- * Author:
- * Student Number:
+ * Author: NAOYUKI CHRISTOPHER HIGAKI
+ * Student Number: ST10462415
  *
  * Task Management Program: Step-by-Step Guide
  *
