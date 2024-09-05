@@ -1,131 +1,146 @@
-
 package QUESTION2;
-
-// File: Task.java
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
- * Author: Naoyuki Christopher Higaki
- * Student Number: ST10462415
- * 
- * The Task class represents a single task with a unique ID, description, due date,
- * priority level, and completion status. It provides methods to access and modify
- * these properties.
+ * Author:
+ * Student Number:
+ *
+ * The Task class models a single task with attributes such as description, due date,
+ * priority level, and completion status. Each task has a unique ID assigned automatically 
+ * when created. This class implements Serializable, enabling the task to be serialized 
+ * and stored. It provides getter and setter methods to access and update the task's 
+ * properties, as well as a method to mark the task as completed.
  */
-
-public class Task implements Serializable {
-    private static int idCounter = 1;  // Static counter to ensure unique task IDs
-    private final int id;  // Unique identifier for the task
-    private String description;  // Description of the task
-    private LocalDate dueDate;  // Due date for the task
-    private String priority;  // Priority level (e.g., high, medium, low)
-    private boolean isCompleted;  // Completion status of the task
+public class Task implements Serializable
+{
+    private static int idCounter = 1;  // Static counter to ensure unique task IDs across instances
+    private final int id;  // Unique identifier for each task
+    private String description;  // A brief description of the task
+    private LocalDate dueDate;  // The date by which the task should be completed
+    private String priority;  // The urgency of the task (e.g., High, Medium, Low)
+    private boolean isCompleted;  // Status flag to track if the task is completed
 
     /**
-     * Constructs a new Task with the specified description, due date, and priority.
+     * Constructor for the Task class.
+     * Initializes a new Task object with the given description, due date, and priority.
+     * The task is assigned a unique ID, and its completion status is initially set to false.
      *
-     * @param description the description of the task
-     * @param dueDate     the due date of the task
-     * @param priority    the priority level of the task
+     * @param description A brief summary of the task to be performed
+     * @param dueDate The date by which the task is due to be completed
+     * @param priority The urgency of the task, defined as a string (e.g., High, Medium, Low)
      */
-    public Task(String description, LocalDate dueDate, String priority) {
-        this.id = idCounter++;
+    public Task(String description, LocalDate dueDate, String priority)
+    {
+        this.id = idCounter++;  // Automatically assign a unique ID to the task
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
-        this.isCompleted = false;  // Default to not completed
+        this.isCompleted = false;  // Initially set the task as not completed
     }
 
     /**
-     * Returns the unique identifier for this task.
+     * Retrieves the unique ID of the task.
      *
-     * @return the task ID
+     * @return The ID associated with this task
      */
-    public int getId() {
+    public int getId()
+    {
         return id;
     }
 
     /**
-     * Retrieves the description of this task.
+     * Retrieves the description of the task.
      *
-     * @return the task description
+     * @return A string containing the task's description
      */
-    public String getDescription() {
+    public String getDescription()
+    {
         return description;
     }
 
     /**
-     * Updates the description of this task.
+     * Updates the description of the task.
      *
-     * @param description the new description
+     * @param description A new description for the task
      */
-    public void setDescription(String description) {
+    public void setDescription(String description)
+    {
         this.description = description;
     }
 
     /**
-     * Returns the due date of this task.
+     * Retrieves the due date of the task.
      *
-     * @return the due date
+     * @return A LocalDate object representing the task's due date
      */
-    public LocalDate getDueDate() {
+    public LocalDate getDueDate()
+    {
         return dueDate;
     }
 
     /**
-     * Updates the due date of this task.
+     * Updates the due date of the task.
      *
-     * @param dueDate the new due date
+     * @param dueDate A new LocalDate representing the task's updated due date
      */
-    public void setDueDate(LocalDate dueDate) {
+    public void setDueDate(LocalDate dueDate)
+    {
         this.dueDate = dueDate;
     }
 
     /**
-     * Retrieves the priority level of this task.
+     * Retrieves the priority level of the task.
      *
-     * @return the priority level
+     * @return A string representing the task's priority level
      */
-    public String getPriority() {
+    public String getPriority()
+    {
         return priority;
     }
 
     /**
-     * Updates the priority level of this task.
+     * Updates the priority level of the task.
      *
-     * @param priority the new priority level
+     * @param priority The new priority level (e.g., High, Medium, Low)
      */
-    public void setPriority(String priority) {
+    public void setPriority(String priority)
+    {
         this.priority = priority;
     }
 
     /**
-     * Checks if the task is completed.
+     * Checks if the task is completed or not.
      *
-     * @return true if the task is completed, false otherwise
+     * @return true if the task is marked as completed, false otherwise
      */
-    public boolean isCompleted() {
+    public boolean isCompleted()
+    {
         return isCompleted;
     }
 
     /**
      * Marks the task as completed.
+     * This method sets the task's completion status to true.
      */
-    public void markCompleted() {
-        this.isCompleted = true;
+    public void markCompleted()
+    {
+        this.isCompleted = true;  // Set the task as completed
     }
 
     /**
-     * Returns a string representation of the task, including its ID, description,
-     * due date, priority level, and completion status.
+     * Returns a string representation of the task.
+     * The string includes the task's unique ID, description, due date, priority level,
+     * and completion status.
      *
-     * @return a string representation of the task
+     * @return A string that summarizes the task's properties
      */
     @Override
-    public String toString() {
-        return String.format("ID: %d, Description: %s, Due Date: %s, Priority: %s, Completed: %s",
-                id, description, dueDate, priority, isCompleted ? "Yes" : "No");
+    public String toString()
+    {
+        return String.format(
+            "ID: %d, Description: %s, Due Date: %s, Priority: %s, Completed: %s",
+            id, description, dueDate, priority, isCompleted ? "Yes" : "No");
     }
 }

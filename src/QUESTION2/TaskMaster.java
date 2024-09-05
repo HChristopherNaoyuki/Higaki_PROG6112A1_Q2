@@ -1,4 +1,3 @@
-
 package QUESTION2;
 
 // File: TaskMaster.java
@@ -7,8 +6,8 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
- * Author: Naoyuki Christopher Higaki
- * Student Number: ST10462415
+ * Author:
+ * Student Number:
  *
  * Task Management Program: Step-by-Step Guide
  *
@@ -143,7 +142,8 @@ import java.util.Scanner;
  *
  */
 
-public class TaskMaster {
+public class TaskMaster
+{
     // The filename where tasks will be saved/loaded
     private static final String FILENAME = "tasks.ser";
 
@@ -159,7 +159,8 @@ public class TaskMaster {
      *
      * @param args command-line arguments (not used)
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         // Initialize TaskManager and Scanner
         taskManager = new TaskManager();
         scanner = new Scanner(System.in);
@@ -171,7 +172,9 @@ public class TaskMaster {
 
         // Main loop to process user commands until 'exit' is entered
         boolean exit = false;
-        while (!exit) {
+
+        while (!exit)
+        {
             System.out.println("Enter a command:");
             String command = scanner.nextLine();
 
@@ -179,14 +182,19 @@ public class TaskMaster {
             String[] parts = command.split(" ", 2);
 
             // Handle different commands
-            switch (parts[0].toLowerCase()) {
+            switch (parts[0].toLowerCase())
+            {
                 case "add-task":
                     // Check if there are enough arguments for adding a task
-                    if (parts.length > 1) {
+                    if (parts.length > 1)
+                    {
                         handleAddTask(parts[1]);
-                    } else {
+                    }
+                    else
+                    {
                         System.out.println("Error: 'add-task' command requires additional arguments.");
                     }
+
                     break;
 
                 case "list-tasks":
@@ -196,38 +204,54 @@ public class TaskMaster {
 
                 case "complete-task":
                     // Check if there is a task ID provided
-                    if (parts.length > 1) {
+                    if (parts.length > 1)
+                    {
                         handleCompleteTask(parts[1]);
-                    } else {
+                    }
+                    else
+                    {
                         System.out.println("Error: 'complete-task' command requires a task ID.");
                     }
+
                     break;
 
                 case "delete-task":
                     // Check if there is a task ID provided
-                    if (parts.length > 1) {
+                    if (parts.length > 1)
+                    {
                         handleDeleteTask(parts[1]);
-                    } else {
+                    }
+                    else
+                    {
                         System.out.println("Error: 'delete-task' command requires a task ID.");
                     }
+
                     break;
 
                 case "search-tasks":
                     // Check if there is a keyword provided for searching
-                    if (parts.length > 1) {
+                    if (parts.length > 1)
+                    {
                         handleSearchTasks(parts[1]);
-                    } else {
+                    }
+                    else
+                    {
                         System.out.println("Error: 'search-tasks' command requires a keyword.");
                     }
+
                     break;
 
                 case "filter-tasks":
                     // Check if there are enough arguments for filtering tasks
-                    if (parts.length > 1) {
+                    if (parts.length > 1)
+                    {
                         handleFilterTasks(parts[1]);
-                    } else {
+                    }
+                    else
+                    {
                         System.out.println("Error: 'filter-tasks' command requires filter criteria and a value.");
                     }
+
                     break;
 
                 case "exit":
@@ -252,10 +276,13 @@ public class TaskMaster {
      *
      * @param details the details of the task in the format: "description" dueDate priority
      */
-    private static void handleAddTask(String details) {
+    private static void handleAddTask(String details)
+    {
         // Split the details by double quotes to extract the description
         String[] parts = details.split("\"");
-        if (parts.length < 2) {
+
+        if (parts.length < 2)
+        {
             System.out.println("Invalid command format!");
             return;
         }
@@ -265,7 +292,9 @@ public class TaskMaster {
 
         // Split the remaining part to get the due date and priority
         String[] rest = parts[2].trim().split(" ");
-        if (rest.length < 2) {
+
+        if (rest.length < 2)
+        {
             System.out.println("Invalid command format!");
             return;
         }
@@ -283,14 +312,18 @@ public class TaskMaster {
      *
      * @param taskIdStr the ID of the task to complete
      */
-    private static void handleCompleteTask(String taskIdStr) {
-        try {
+    private static void handleCompleteTask(String taskIdStr)
+    {
+        try
+        {
             // Parse the task ID from the input string
             int taskId = Integer.parseInt(taskIdStr.trim());
 
             // Mark the task as completed using the TaskManager
             taskManager.completeTask(taskId);
-        } catch (NumberFormatException e) {
+        }
+        catch (NumberFormatException e)
+        {
             // Handle invalid task ID input
             System.out.println("Invalid task ID!");
         }
@@ -301,14 +334,18 @@ public class TaskMaster {
      *
      * @param taskIdStr the ID of the task to delete
      */
-    private static void handleDeleteTask(String taskIdStr) {
-        try {
+    private static void handleDeleteTask(String taskIdStr)
+    {
+        try
+        {
             // Parse the task ID from the input string
             int taskId = Integer.parseInt(taskIdStr.trim());
 
             // Delete the task using the TaskManager
             taskManager.deleteTask(taskId);
-        } catch (NumberFormatException e) {
+        }
+        catch (NumberFormatException e)
+        {
             // Handle invalid task ID input
             System.out.println("Invalid task ID!");
         }
@@ -319,7 +356,8 @@ public class TaskMaster {
      *
      * @param keyword the keyword to search for in task descriptions
      */
-    private static void handleSearchTasks(String keyword) {
+    private static void handleSearchTasks(String keyword)
+    {
         // Search for tasks using the TaskManager
         taskManager.searchTasks(keyword.trim());
     }
@@ -329,10 +367,13 @@ public class TaskMaster {
      *
      * @param filterCriteria the filter criteria in the format: criteria value
      */
-    private static void handleFilterTasks(String filterCriteria) {
+    private static void handleFilterTasks(String filterCriteria)
+    {
         // Split the filter criteria into the criteria and value
         String[] parts = filterCriteria.split(" ", 2);
-        if (parts.length < 2) {
+
+        if (parts.length < 2)
+        {
             System.out.println("Invalid command format!");
             return;
         }

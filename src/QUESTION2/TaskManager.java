@@ -1,4 +1,3 @@
-
 package QUESTION2;
 
 // File: TaskManager.java
@@ -11,21 +10,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Author: Naoyuki Christopher Higaki
- * Student Number: ST10462415
+ * Author:
+ * Student Number:
  * 
  * The TaskManager class manages a list of tasks, providing operations to add, list,
  * complete, delete, search, and filter tasks. It also supports saving tasks to and
  * loading tasks from a file.
  */
 
-public class TaskManager {
+public class TaskManager
+{
     private List<Task> tasks;  // List to store tasks
 
     /**
      * Constructs a new TaskManager with an empty task list.
      */
-    public TaskManager() {
+    public TaskManager()
+    {
         tasks = new ArrayList<>();
     }
     
@@ -36,7 +37,8 @@ public class TaskManager {
      * @param dueDate     the due date of the task
      * @param priority    the priority level of the task
      */
-    public void addTask(String description, LocalDate dueDate, String priority) {
+    public void addTask(String description, LocalDate dueDate, String priority)
+    {
         Task task = new Task(description, dueDate, priority);
         tasks.add(task);
         System.out.println("Task added successfully!");
@@ -45,14 +47,16 @@ public class TaskManager {
     /**
      * Lists all tasks in the task list, sorted by priority and due date.
      */
-    public void listTasks() {
+    public void listTasks()
+    {
         List<Task> sortedTasks = tasks.stream()
                 .sorted(Comparator.comparing(Task::getPriority)
                         .thenComparing(Task::getDueDate))
                 .collect(Collectors.toList());
 
         System.out.println("Tasks:");
-        for (Task task : sortedTasks) {
+        for (Task task : sortedTasks)
+        {
             System.out.println(task);
         }
     }
@@ -62,9 +66,12 @@ public class TaskManager {
      *
      * @param id the ID of the task to complete
      */
-    public void completeTask(int id) {
-        for (Task task : tasks) {
-            if (task.getId() == id) {
+    public void completeTask(int id)
+    {
+        for (Task task : tasks)
+        {
+            if (task.getId() == id)
+            {
                 task.markCompleted();
                 System.out.println("Task marked as completed!");
                 return;
@@ -78,7 +85,8 @@ public class TaskManager {
      *
      * @param id the ID of the task to delete
      */
-    public void deleteTask(int id) {
+    public void deleteTask(int id)
+    {
         tasks.removeIf(task -> task.getId() == id);
         System.out.println("Task deleted successfully!");
     }
@@ -88,13 +96,15 @@ public class TaskManager {
      *
      * @param keyword the keyword to search for
      */
-    public void searchTasks(String keyword) {
+    public void searchTasks(String keyword)
+    {
         List<Task> results = tasks.stream()
                 .filter(task -> task.getDescription().toLowerCase().contains(keyword.toLowerCase()))
                 .collect(Collectors.toList());
 
         System.out.println("Search Results:");
-        for (Task task : results) {
+        for (Task task : results)
+        {
             System.out.println(task);
         }
     }
@@ -105,34 +115,40 @@ public class TaskManager {
      * @param criteria the criteria to filter by (priority, duedate, or status)
      * @param value    the value for the filter criteria
      */
-    public void filterTasks(String criteria, String value) {
+    public void filterTasks(String criteria, String value)
+    {
         List<Task> filteredTasks = new ArrayList<>();
 
-        switch (criteria.toLowerCase()) {
+        switch (criteria.toLowerCase())
+        {
             case "priority":
                 filteredTasks = tasks.stream()
                         .filter(task -> task.getPriority().equalsIgnoreCase(value))
                         .collect(Collectors.toList());
                 break;
+                
             case "duedate":
                 LocalDate date = LocalDate.parse(value);
                 filteredTasks = tasks.stream()
                         .filter(task -> task.getDueDate().equals(date))
                         .collect(Collectors.toList());
                 break;
+                
             case "status":
                 boolean completed = value.equalsIgnoreCase("completed");
                 filteredTasks = tasks.stream()
                         .filter(task -> task.isCompleted() == completed)
                         .collect(Collectors.toList());
                 break;
+                
             default:
                 System.out.println("Invalid filter criteria!");
                 return;
         }
 
         System.out.println("Filtered Tasks:");
-        for (Task task : filteredTasks) {
+        for (Task task : filteredTasks)
+        {
             System.out.println(task);
         }
     }
@@ -142,11 +158,15 @@ public class TaskManager {
      *
      * @param filename the name of the file to save tasks to
      */
-    public void saveTasks(String filename) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+    public void saveTasks(String filename)
+    {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename)))
+        {
             oos.writeObject(tasks);
             System.out.println("Tasks saved successfully!");
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             System.out.println("Failed to save tasks: " + e.getMessage());
         }
     }
@@ -156,11 +176,15 @@ public class TaskManager {
      *
      * @param filename the name of the file to load tasks from
      */
-    public void loadTasks(String filename) {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
+    public void loadTasks(String filename)
+    {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename)))
+        {
             tasks = (List<Task>) ois.readObject();
             System.out.println("Tasks loaded successfully!");
-        } catch (IOException | ClassNotFoundException e) {
+        }
+        catch (IOException | ClassNotFoundException e)
+        {
             System.out.println("Failed to load tasks: " + e.getMessage());
         }
     }
@@ -170,7 +194,8 @@ public class TaskManager {
      *
      * @return the list of tasks
      */
-    public List<Task> getTasks() {
+    public List<Task> getTasks()
+    {
         return tasks;
     }
 }
