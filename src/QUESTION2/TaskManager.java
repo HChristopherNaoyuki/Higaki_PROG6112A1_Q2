@@ -10,9 +10,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Author: NAOYUKI CHRISTOPHER HIGAKI
- * Student Number: ST10462415
- * 
  * The TaskManager class manages a list of tasks, providing operations to add, list,
  * complete, delete, search, and filter tasks. It also supports saving tasks to and
  * loading tasks from a file.
