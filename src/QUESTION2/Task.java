@@ -4,9 +4,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
- * Author: NAOYUKI CHRISTOPHER HIGAKI
- * Student Number: ST10462415
- *
  * The Task class models a single task with attributes such as description, due date,
  * priority level, and completion status. Each task has a unique ID assigned automatically 
  * when created. This class implements Serializable, enabling the task to be serialized 
