@@ -11,9 +11,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Author: NAOYUKI CHRISTOPHER HIGAKI
- * Student Number: ST10462415
- * 
  * The TaskManagerTest class is a comprehensive suite of unit tests designed to validate
  * the functionality of the TaskManager and Task classes.
  * 
