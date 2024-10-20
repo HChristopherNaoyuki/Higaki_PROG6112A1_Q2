@@ -6,9 +6,6 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
- * Author: NAOYUKI CHRISTOPHER HIGAKI
- * Student Number: ST10462415
- *
  * Task Management Program: Step-by-Step Guide
  *
  * Welcome to the Task Management Program! This guide will help you get started with managing your tasks using simple commands.
