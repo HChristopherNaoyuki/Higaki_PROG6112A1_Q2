@@ -84,34 +84,34 @@ Welcome to the Task Management Program! This guide will help you get started wit
 ## Example Session:
 --------------------------------------------------------------------
 
-Welcome to TaskMaster!
-Enter a command:
-add-task "Finish project" 2024-08-20 High
-Task added successfully!
+- Welcome to TaskMaster!
+- Enter a command:
+- add-task "Finish project" 2024-08-20 High
+- Task added successfully!
 
-Enter a command:
-add-task "Buy groceries" 2024-08-21 Medium
-Task added successfully!
+- Enter a command:
+- add-task "Buy groceries" 2024-08-21 Medium
+- Task added successfully!
 
-Enter a command:
-list-tasks
-Tasks:
-ID: 1, Description: Finish project, Due Date: 2024-08-20, Priority: High, Completed: No
-ID: 2, Description: Buy groceries, Due Date: 2024-08-21, Priority: Medium, Completed: No
+- Enter a command:
+- list-tasks
+- Tasks:
+- ID: 1, Description: Finish project, Due Date: 2024-08-20, Priority: High, Completed: No
+- ID: 2, Description: Buy groceries, Due Date: 2024-08-21, Priority: Medium, Completed: No
 
-Enter a command:
-complete-task 1
-Task marked as completed!
+- Enter a command:
+- complete-task 1
+- Task marked as completed!
 
-Enter a command:
-filter-tasks status completed
-Filtered Tasks:
-ID: 1, Description: Finish project, Due Date: 2024-08-20, Priority: High, Completed: Yes
+- Enter a command:
+- filter-tasks status completed
+- Filtered Tasks:
+- ID: 1, Description: Finish project, Due Date: 2024-08-20, Priority: High, Completed: Yes
 
-Enter a command:
-exit
-Tasks saved successfully!
-Goodbye!
+- Enter a command:
+- exit
+- Tasks saved successfully!
+- Goodbye!
 
 --------------------------------------------------------------------
 ## Tips for Success:
